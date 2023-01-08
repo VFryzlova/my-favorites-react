@@ -1,5 +1,4 @@
 import { Link, Routes, Route } from 'react-router-dom'
-import { GlobalStyles } from "./styles";
 import Home from './pages/Home/index';
 import Login from './pages/Login/index';
 import Contacts from './pages/Contacts/index';
@@ -13,19 +12,20 @@ import Navigation from './components/Navigation';
 
 const App = () => {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/contacts" element={<Contacts />} />
-        <Route path="/add" element={<Add />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/presents" element={<Presents />} />
-      </Routes>
-      <GlobalStyles />
-      <Link to="/login">Login</Link>
+    <div className='app'>
+      <main>
+        <Link to="/login">Login</Link>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/add" element={<Add />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/presents" element={<Presents />} />
+        </Routes>
+      </main>
       <Navigation />
-    </>
+    </div>
   )
 }
 

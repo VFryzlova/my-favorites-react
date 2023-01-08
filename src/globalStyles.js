@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import Colors from "./variables/Colors";
 
 export const GlobalStyles = createGlobalStyle`
     * {
@@ -6,5 +7,16 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background: ${Colors.grey.dark};
+    }
+
+    .app {
+        background: ${Colors.white};
+        max-width: 700px;
+        height: 100vh;
+        margin: 0 auto
     }
 `
