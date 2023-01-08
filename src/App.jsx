@@ -1,11 +1,15 @@
 import { Link, Routes, Route } from 'react-router-dom'
-import Home from './components/Home/index';
-import Login from './components/Login/index';
-import Contacts from './components/Contacts/index';
+import { GlobalStyles } from "./styles";
+import Home from './pages/Home/index';
+import Login from './pages/Login/index';
+import Contacts from './pages/Contacts/index';
+import Add from './pages/Add';
+import Events from './pages/Events/index';
+import Presents from './pages/Presents/index';
 import Navigation from './components/Navigation';
-import Add from './components/Add';
-import Events from './components/Events/index';
-import Presents from './components/Presents/index';
+
+// if user not logged in, show login page
+// after login, redirect to /
 
 const App = () => {
   return (
@@ -18,6 +22,7 @@ const App = () => {
         <Route path="/events" element={<Events />} />
         <Route path="/presents" element={<Presents />} />
       </Routes>
+      <GlobalStyles />
       <Link to="/login">Login</Link>
       <Navigation />
     </>
