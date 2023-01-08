@@ -6,6 +6,7 @@ import Add from './pages/Add';
 import Events from './pages/Events/index';
 import Presents from './pages/Presents/index';
 import Navigation from './components/Navigation';
+import Header from './components/Header';
 
 // if user not logged in, show login page
 // after login, redirect to /
@@ -13,8 +14,8 @@ import Navigation from './components/Navigation';
 const App = () => {
   return (
     <div className='app'>
+      <Header />
       <main>
-        <Link to="/login">Login</Link>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

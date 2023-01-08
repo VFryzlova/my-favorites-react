@@ -16,7 +16,15 @@ export const GlobalStyles = createGlobalStyle`
     .app {
         background: ${Colors.white};
         max-width: 700px;
-        height: 100vh;
-        margin: 0 auto
+        margin: 0 auto;
+
+        main {
+            text-align: center;
+            background: ${Colors.white};
+            border-top-left-radius: 32px;
+            border-top-right-radius: 32px;
+            height: 100vh;
+            padding: 32px;
+        }
     }
 `

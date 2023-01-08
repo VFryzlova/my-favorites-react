@@ -15,7 +15,7 @@ const Colors = {
         green: 'linear-gradient(90deg, rgba(107,195,87,1) 25%, rgba(168,210,98,1) 100%)'
     },
     transparent: {
-        white: 'rgba(white, .1)'
+        white: 'rgba(255,255,255, 0.1)'
     }
 }
 
