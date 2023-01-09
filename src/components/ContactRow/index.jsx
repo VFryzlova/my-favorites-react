@@ -1,8 +1,8 @@
-import React from 'react'
+import { Link } from "react-router-dom"
 
-const ContactRow = () => {
+const ContactRow = ({contact}) => {
   return (
-    <div>ContactRow</div>
+    <Link to={`/contacts/${contact.id}`}>{contact.firstName} {contact.lastName}</Link>
   )
 }
 

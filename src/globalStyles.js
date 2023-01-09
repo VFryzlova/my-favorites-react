@@ -19,7 +19,6 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0 auto;
 
         main {
-            text-align: center;
             background: ${Colors.white};
             border-top-left-radius: 32px;
             border-top-right-radius: 32px;
