@@ -4,7 +4,7 @@ import { Section } from '../../components/Section/styles'
 import ContactRow from '../../components/ContactRow'
 
 const Home = () => {
-	const { isLoading, isError, isFetched, data } = useQuery('contacts', fetchContacts)
+	const { isLoading, isError, data } = useQuery('contacts', fetchContacts)
 
 	if (isLoading) return <p>Loading..</p>
 	if (isError) return <p>Something went wrong</p>

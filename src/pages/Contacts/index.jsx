@@ -11,7 +11,7 @@ const Contacts = () => {
 
 	return (
 		<Section>
-		<h2>My contacts</h2>
+			<h2>My contacts</h2>
 			{data?.map(contact => <ContactRow key={contact.id} contact={contact} />)}
 		</Section>
 	)

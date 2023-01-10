@@ -1,10 +1,16 @@
-import { Link } from "react-router-dom"
+import { useState } from 'react';
+import ContactModal from '../../components/ContactModal';
 
 const ContactRow = ({contact}) => {
+  const [modalOpen, setModalOpen] = useState(false)
+  const openModalHandler = () => { setModalOpen(true) }
+  const closeModalHandler = () => { setModalOpen(false) }
+
   return (
-    <div>
-      <Link to={`/contacts/${contact.id}`}>{contact.firstName} {contact.lastName}</Link>
-    </div>
+    <>
+    <div onClick={openModalHandler}>{contact.firstName} {contact.lastName}</div>
+    {modalOpen && <ContactModal contact={contact} onBack={closeModalHandler}/>}
+    </>
   )
 }
 
