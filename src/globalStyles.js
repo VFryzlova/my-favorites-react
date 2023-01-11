@@ -10,7 +10,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        background: ${Colors.grey.dark};
+        background: ${Colors.grey.medium};
     }
 
     .app {

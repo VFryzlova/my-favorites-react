@@ -1,9 +1,10 @@
 const Colors = {
     white: 'white',
+    black: 'black',
     grey: {
         light: 'rgb(240, 240, 240)',
         medium: 'rgb(230, 230, 230)',
-        dark: 'rgb(220, 220, 220)'
+        dark: 'rgb(160, 160, 160)'
     },
     blue: {
         medium: 'rgba(22,73,103,1)',

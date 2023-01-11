@@ -19,17 +19,37 @@ export const HeaderEl = styled.header`
         height: 25px;
     }
 
-    // Search
-    input {
-        all: unset;
-        background-color: ${Colors.transparent.white};
-        height: 2.5rem;
-        width: 80%;  
-        border-radius: 2rem;
-        padding: 0 1rem;
+    .search {
+        width: 80%; 
+        position: relative;
 
-        &::placeholder {
-            color: rgba(255,255,255, 0.4);
+        input {
+            all: unset;
+            box-sizing: border-box;
+            width: 100%;
+            background-color: ${Colors.transparent.white};
+            height: 40px; 
+            border-radius: 32px;
+            padding: 0 16px;
+
+            &::placeholder {
+                color: rgba(255,255,255, 0.4);
+            }
         }
-    }   
+
+        .search-dropdown {
+            width: 100%;
+            position: absolute;
+            padding: 16px;
+            border-radius: 8px;
+            color: ${Colors.black};
+            background-color: ${Colors.white};
+            border: 1px solid ${Colors.grey.medium};
+            box-shadow: 0px 0px 16px 0px rgba(22,73,103,0.2);
+
+            .not-found {
+                color: ${Colors.grey.dark};
+            }
+        }
+    }
 `
