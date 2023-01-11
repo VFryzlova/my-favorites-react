@@ -1,10 +1,15 @@
 import { useState } from 'react';
 import ContactModal from '../../components/ContactModal';
 
-const ContactRow = ({contact}) => {
+const ContactRow = ({contact, clearSearch}) => {
   const [modalOpen, setModalOpen] = useState(false)
+
   const openModalHandler = () => { setModalOpen(true) }
-  const closeModalHandler = () => { setModalOpen(false) }
+
+  const closeModalHandler = () => { 
+    setModalOpen(false) 
+    clearSearch && clearSearch()
+  }
 
   return (
     <>
