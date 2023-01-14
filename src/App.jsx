@@ -9,26 +9,26 @@ import Events from './pages/Events/index';
 import Presents from './pages/Presents/index';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
-import { fetchContacts } from './fetchers/fetchContacts';
+import { fetchDb } from './fetchers/fetchDb';
 
 // if user not logged in, show login page
 // after login, redirect to /
 
 const App = () => {
-  const [contacts, setContacts] = useState([])
-  const { isLoading, isError } = useQuery('contacts', fetchContacts, { onSuccess: setContacts})
+  const [data, setData] = useState([])
+  const { isLoading, isError } = useQuery('contacts', fetchDb, { onSuccess: setData})
 
   if (isLoading) return <p>Loading..</p>
 	if (isError) return <p>Something went wrong</p>
 
   return (
     <div className='app'>
-      <Header contacts={contacts}  />
+      <Header contacts={data.contactsData}  />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/contacts" element={<Contacts contacts={contacts} />} />
+          <Route path="/contacts" element={<Contacts contacts={data.contactsData} />} />
           <Route path="/add" element={<Add />} />
           <Route path="/events" element={<Events />} />
           <Route path="/presents" element={<Presents />} />

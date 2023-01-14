@@ -8,5 +8,5 @@ export const Modal = styled.div`
     width: 100%;
     height: 100%;
     background-color: ${Colors.white};
-    padding: 32px
+    padding: 32px;
 `

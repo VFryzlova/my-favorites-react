@@ -7,4 +7,7 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ["firebase", "firebase/app", "firebase/auth", "firebase/firestore"],
   },
+  server: {
+    host: true
+  }
 })
