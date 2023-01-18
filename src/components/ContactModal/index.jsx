@@ -5,6 +5,7 @@ import Colors from "../../variables/Colors";
 import Icon from '../Icon';
 import EventTile from '../EventTile';
 import { fetchContactEvents } from '../../fetchers/fetchContactEvents'
+import defaultAvatar from '../.././assets/account_circle_black_48dp.svg'
 
 const ContactModal = ({contact, onBack}) => {
     const backHandler = () => { onBack() }
@@ -18,6 +19,7 @@ const ContactModal = ({contact, onBack}) => {
         <Modal>
             <i className="arrow-back" onClick={backHandler}><Icon type="arrow-back" size={32} color={Colors.grey.dark} /></i>
             <Section centered>
+                <img src={defaultAvatar} className="avatar" />
                 <h2>{contact.firstName} {contact.lastName}</h2>
                 <p>*21.9.1994, 28 let</p>
             </Section>

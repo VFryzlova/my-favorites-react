@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-    text-align: ${props => props.centered ? "center" : "left"};
-    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: ${props => props.centered ? "center" : "flex-start"};
+    padding: 0 32px 24px;
 
     h2 {
         margin-bottom: 16px;

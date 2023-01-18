@@ -23,7 +23,7 @@ export const GlobalStyles = createGlobalStyle`
             border-top-left-radius: 32px;
             border-top-right-radius: 32px;
             height: 100vh;
-            padding: 32px;
+            padding-top: 32px;
         }
     }
 `

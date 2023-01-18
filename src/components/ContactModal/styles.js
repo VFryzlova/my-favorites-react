@@ -9,4 +9,8 @@ export const Modal = styled.div`
     height: 100%;
     background-color: ${Colors.white};
     padding: 32px;
+
+    .avatar {
+        width: 120px;
+    }
 `
