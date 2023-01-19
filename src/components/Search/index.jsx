@@ -32,7 +32,7 @@ const Search = ({contacts}) => {
         {searchTerm && 
         <div className="search-dropdown"> 
             {results.length > 0 
-            ? results.map(result => <ContactRow key={result.id} contact={result} clearSearch={clearSearch}/>) 
+            ? results.map(result => <ContactRow key={result.id} contact={result} onClick={clearSearch} />) 
             : <div className='not-found'>Not found..</div>}
         </div>}
     </div>

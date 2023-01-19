@@ -1,26 +1,16 @@
-import { useState } from 'react';
-import ContactModal from '../../components/ContactModal';
+import { Link } from "react-router-dom"
 import { ContactRowEl } from './styles';
 import defaultAvatar from '../.././assets/account_circle_black_48dp.svg'
 
-const ContactRow = ({contact, clearSearch}) => {
-  const [modalOpen, setModalOpen] = useState(false)
-
-  const openModalHandler = () => { setModalOpen(true) }
-
-  const closeModalHandler = () => { 
-    setModalOpen(false) 
-    clearSearch && clearSearch()
-  }
+const ContactRow = ({contact}) => {
 
   return (
-    <>
-    <ContactRowEl onClick={openModalHandler}>
-      <img src={defaultAvatar} className="avatar" />
-      {contact.firstName} {contact.lastName}
-    </ContactRowEl>
-    {modalOpen && <ContactModal contact={contact} onBack={closeModalHandler}/>}
-    </>
+    <Link to={contact.id} state={contact}>
+      <ContactRowEl>
+        <img src={defaultAvatar} className="avatar" />
+        {contact.firstName} {contact.lastName}
+      </ContactRowEl>
+    </Link>
   )
 }
 

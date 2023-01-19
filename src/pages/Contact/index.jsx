@@ -1,23 +1,26 @@
 import { useQuery } from 'react-query'
 import { useState } from 'react'
-import { Section } from '../Section/styles'
+import { useParams, useLocation, useNavigate } from "react-router-dom"
+import { Section } from '../../components/Section/styles'
 import { Modal } from './styles'
-import EventTile from '../EventTile';
+import EventTile from '../../components/EventTile';
 import { fetchContactEvents } from '../../fetchers/fetchContactEvents'
 import defaultAvatar from '../.././assets/account_circle_black_48dp.svg'
 import arrowBack from '../.././assets/arrow_back_ios_white_36dp.svg'
 import contactMenu from '../.././assets/more_vert_24dp.svg'
 
-const ContactModal = ({contact, onBack}) => {
+const Contact = () => {
     const [menuModalOpen, setMenuModalOpen] = useState(false)
+    const {id} = useParams();
+    const location = useLocation();
+    const contact = location.state;
+    const navigate = useNavigate();
 
     const menuModalOpenHandler = () => { 
         menuModalOpen ? setMenuModalOpen(false) : setMenuModalOpen(true)
     }
 
-    const backHandler = () => { onBack() }
-
-    const { isLoading, isError, data: events } = useQuery(['contactEvents', contact.id], fetchContactEvents)
+    const { isLoading, isError, data: events } = useQuery(['contactEvents', id], fetchContactEvents)
 
 	if (isLoading) return <p>Loading..</p>
 	if (isError) return <p>Something went wrong</p>
@@ -25,7 +28,7 @@ const ContactModal = ({contact, onBack}) => {
     return (
         <Modal>
             <div className="header">
-                <img src={arrowBack} className="arrow-back" onClick={backHandler} />
+                <img src={arrowBack} className="arrow-back" onClick={() => navigate(-1)} />
                 <h3>Detail</h3>
             </div>
             <div className="modal-content">
@@ -53,4 +56,4 @@ const ContactModal = ({contact, onBack}) => {
     )
 }
 
-export default ContactModal
+export default Contact

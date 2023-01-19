@@ -5,7 +5,14 @@ import { GlobalStyles } from "./globalStyles";
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: Infinity,
+        cacheTime: Infinity,
+      },
+    },
+  })
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

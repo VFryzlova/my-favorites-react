@@ -12,6 +12,10 @@ export const GlobalStyles = createGlobalStyle`
     body {
         background: ${Colors.grey.medium};
     }
+    
+    a {
+        text-decoration: none;
+    }
 
     .app {
         background: ${Colors.white};
