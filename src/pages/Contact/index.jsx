@@ -9,9 +9,9 @@ import contactMenu from '../.././assets/more_vert_24dp.svg';
 
 const Contact = ({ events }) => {
     const [menuModalOpen, setMenuModalOpen] = useState(false);
+    const navigate = useNavigate();
     const location = useLocation();
     const contact = location.state;
-    const navigate = useNavigate();
 
     const menuModalOpenHandler = () => {
         menuModalOpen ? setMenuModalOpen(false) : setMenuModalOpen(true);
