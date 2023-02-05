@@ -17,6 +17,13 @@ const Colors = {
     },
     transparent: {
         white: 'rgba(255,255,255, 0.1)'
+    },
+    eventColors: {
+        blue: 'rgb(92 153 189)',
+        green: 'rgb(107,195,87)',
+        yellow: 'rgb(225 212 122)',
+        orange: 'rgb(251 147 142)',
+        purple: 'rgb(202 163 227)',
     }
 }
 

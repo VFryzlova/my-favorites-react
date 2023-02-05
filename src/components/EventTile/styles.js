@@ -26,10 +26,21 @@ export const EventTileEl = styled.div`
 
 export const EventTileElVertical = styled(EventTileEl)`
     width: 120px;
-    height: 160px;
+    height: 100%;
     flex-direction: column;
     padding: 12px;
     margin: 16px;
+    
+    &:before {
+        content: '';
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 60%;
+        border-radius: 100px;
+        background-color: ${(props) => props.color};
+        margin-bottom: 12px;
+    }
 `
 
 export const EventTileElHorizontal = styled(EventTileEl)`

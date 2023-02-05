@@ -12,7 +12,9 @@ import Navigation from './components/Navigation';
 import Header from './components/Header';
 
 // TODO
+// style search
 // dob of contact will be stored in db formatted
+// Event color in db
 // TypeScript
 // useMutation for adding new itmes to DB
 // invalidate data after change

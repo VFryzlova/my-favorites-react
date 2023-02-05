@@ -5,7 +5,7 @@ const EventTile = ({ event, vertical }) => {
     return (
         <>
             {vertical ? (
-                <EventTileElVertical as={EventTileEl}>
+                <EventTileElVertical as={EventTileEl} color={event.color}>
                     <div className="event-date">{event.date.slice(0, -4)}</div>
                     <div className="event-contact">
                         <img src={defaultAvatar} />
@@ -14,7 +14,7 @@ const EventTile = ({ event, vertical }) => {
                     <div className="event-name">{event.eventName}</div>
                 </EventTileElVertical>
             ) : (
-                <EventTileElHorizontal as={EventTileEl}>
+                <EventTileElHorizontal as={EventTileEl} color={event.color}>
                     <div className="event-info">
                         <div className="event-date">{event.date.slice(0, -4)}</div>
                         <div className="event-name">{event.eventName}</div>

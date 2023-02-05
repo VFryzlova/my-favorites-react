@@ -4,11 +4,16 @@ import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../.././firebase';
 import { Section } from '../../components/Section/styles';
 import Search from '../../components/Search';
+import Colors from '../../variables/Colors';
+import { ColorsEl, Form } from './styles.js';
+
+const colorArray = Object.values(Colors.eventColors);
+const color = colorArray[Math.floor(Math.random() * colorArray.length)];
 
 const Add = ({ contacts, refetch }) => {
     const navigate = useNavigate();
-
     const [eventContact, setEventContact] = useState();
+    const [eventColor, setEventColor] = useState(color);
 
     const addContact = async (contactformDataObj) => {
         await addDoc(collection(db, 'contacts'), contactformDataObj);
@@ -24,11 +29,23 @@ const Add = ({ contacts, refetch }) => {
         setEventContact(eventContact);
     };
 
+    // Event colors
+    const handleSetEventColor = (color) => {
+        setEventColor(color);
+    };
+
+    const selectColor = (e, color) => {
+        const selected = document.querySelector('.selected');
+        selected ? selected.classList.remove('selected') : '';
+        e.target.classList.add('selected');
+        handleSetEventColor(color);
+    };
+
     return (
         <>
             <Section>
                 <h2>Add contact</h2>
-                <form
+                <Form
                     onSubmit={(e) => {
                         e.preventDefault();
                         const formData = new FormData(e.target);
@@ -52,12 +69,12 @@ const Add = ({ contacts, refetch }) => {
                     <div className="form-control">
                         <button type="submit">Add contact</button>
                     </div>
-                </form>
+                </Form>
             </Section>
 
             <Section>
                 <h2>Add event</h2>
-                <form
+                <Form
                     onSubmit={(e) => {
                         e.preventDefault();
                         const formData = new FormData(e.target);
@@ -68,7 +85,8 @@ const Add = ({ contacts, refetch }) => {
                                 return date.getDate() + '.' + (date.getMonth() + 1) + '.' + date.getFullYear();
                             })(),
                             contact: eventContact.name,
-                            contactId: eventContact.id
+                            contactId: eventContact.id,
+                            color: eventColor
                         };
                         addEvent(eventFormDataObj);
                         refetch();
@@ -84,10 +102,15 @@ const Add = ({ contacts, refetch }) => {
                         <input id="date" name="date" type="date" />
                     </div>
                     <Search contacts={contacts} formSearch={true} getEventContact={getEventContact} />
+                    <ColorsEl className="ColorsEl">
+                        {colorArray.map((color) => (
+                            <div className="color" key={color} style={{ backgroundColor: color }} onClick={(e) => selectColor(e, color)}></div>
+                        ))}
+                    </ColorsEl>
                     <div className="form-control">
                         <button type="submit">Add event</button>
                     </div>
-                </form>
+                </Form>
             </Section>
         </>
     );
