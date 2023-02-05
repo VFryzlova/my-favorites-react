@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import ContactRow from '../../components/ContactRow'
 
-const Search = ({contacts}) => {
+const Search = ({contacts, formSearch, getEventContact}) => {
     const [searchTerm, setSearchTerm] = useState('')
     const searchRef = useRef()
 
@@ -32,7 +32,7 @@ const Search = ({contacts}) => {
         {searchTerm && 
         <div className="search-dropdown"> 
             {results.length > 0 
-            ? results.map(result => <ContactRow key={result.id} contact={result} onClick={clearSearch} />) 
+            ? results.map(result => <ContactRow key={result.id} contact={result} onClick={clearSearch} formSearch={formSearch} getEventContact={getEventContact} />) 
             : <div className='not-found'>Not found..</div>}
         </div>}
     </div>

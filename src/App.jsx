@@ -12,6 +12,7 @@ import Navigation from './components/Navigation';
 import Header from './components/Header';
 
 // TODO
+// dob of contact will be stored in db formatted
 // TypeScript
 // useMutation for adding new itmes to DB
 // invalidate data after change
@@ -21,10 +22,11 @@ import Header from './components/Header';
 // after login, redirect to /
 
 // FIXME
-//
+// Scroll to top after clik on menu
+// adding events works on second click
 
 const App = () => {
-    const { isLoading, isError, data } = useQuery(['contacts', 'events'], fetchDb);
+    const { isLoading, isError, data, refetch } = useQuery(['contacts', 'events'], fetchDb);
 
     if (isLoading) return <p>Loading..</p>;
     if (isError) return <p>Something went wrong</p>;
@@ -40,7 +42,7 @@ const App = () => {
                         <Route index element={<Contacts contacts={data.contactsData} />} />
                         <Route path=":id" element={<Contact events={data.eventsData} />} />
                     </Route>
-                    <Route path="/add" element={<Add />} />
+                    <Route path="/add" element={<Add contacts={data.contactsData} refetch={refetch} />} />
                     <Route path="/events" element={<Events events={data.eventsData} />} />
                     <Route path="/presents" element={<Presents />} />
                 </Routes>
