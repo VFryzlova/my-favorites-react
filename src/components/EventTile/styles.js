@@ -47,11 +47,23 @@ export const EventTileElHorizontal = styled(EventTileEl)`
     width: 100%;
     max-width: 260px;
     height: 80px;
-    padding: 12px 18px;
+    padding: 12px;
     margin-bottom: 16px;
+
+    &:before {
+        content: '';
+        top: 0;
+        left: 0;
+        height: 80%;
+        width: 3px;
+        border-radius: 100px;
+        background-color: ${(props) => props.color};
+        margin-right: 12px;
+    }
 
     .event-info {
         text-align: left;
+        flex: 1;
 
         .event-date {
             font-size: 14px;
