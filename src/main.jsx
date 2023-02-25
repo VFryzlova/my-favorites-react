@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { BrowserRouter } from 'react-router-dom';
-import { GlobalStyles } from './globalStyles';
+import { GlobalStyles } from './styles/globalStyles';
 import App from './App';
 import ScrollToTop from './helpers/ScrollToTop';
 

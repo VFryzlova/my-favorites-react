@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../.././firebase';
-import { Section } from '../../components/Section/styles';
+import { Section } from '../../styles/section';
 import Search from '../../components/Search';
 import Colors from '../../variables/Colors';
 import { ColorsEl, Form } from './styles.js';
@@ -19,11 +19,11 @@ const AddEvent = ({ contacts }) => {
     const queryClient = useQueryClient();
 
     const eventMutation = useMutation({
-        mutationFn: updatedData => {
+        mutationFn: (updatedData) => {
             addDoc(collection(db, 'events'), updatedData);
         },
         onSuccess: () => {
-            queryClient.invalidateQueries(['dbData'])
+            queryClient.invalidateQueries(['dbData']);
         }
     });
 
@@ -63,7 +63,7 @@ const AddEvent = ({ contacts }) => {
                             contactId: eventContact.id,
                             color: eventColor
                         };
-                        eventMutation.mutate(eventFormDataObj)
+                        eventMutation.mutate(eventFormDataObj);
                         navigate('/');
                     }}
                 >

@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../.././firebase';
-import { Section } from '../../components/Section/styles';
+import { Section } from '../../styles/section';
 import { Form } from './styles.js';
 
 const AddContact = () => {
@@ -10,11 +10,11 @@ const AddContact = () => {
     const queryClient = useQueryClient();
 
     const contactMutation = useMutation({
-        mutationFn: updatedData => {
+        mutationFn: (updatedData) => {
             addDoc(collection(db, 'contacts'), updatedData);
         },
         onSuccess: () => {
-            queryClient.invalidateQueries(['dbData'])
+            queryClient.invalidateQueries(['dbData']);
         }
     });
 
@@ -29,7 +29,7 @@ const AddContact = () => {
                         firstName: formData.get('firstName') ?? '',
                         lastName: formData.get('lastName') ?? ''
                     };
-                    contactMutation.mutate(contactformDataObj)
+                    contactMutation.mutate(contactformDataObj);
                     navigate('/contacts');
                 }}
             >

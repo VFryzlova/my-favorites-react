@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import Colors from "./variables/Colors";
+import { createGlobalStyle } from 'styled-components';
+import Colors from '../variables/Colors';
 
 export const GlobalStyles = createGlobalStyle`
     * {
@@ -30,4 +30,4 @@ export const GlobalStyles = createGlobalStyle`
             padding-top: 32px;
         }
     }
-`
+`;

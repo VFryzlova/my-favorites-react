@@ -14,7 +14,7 @@ const ContactRow = ({ contact, formSearch, getEventContact }) => {
                     {contact.firstName} {contact.lastName}
                 </ContactRowEl>
             ) : (
-                <Link to={`/contacts/${contact.id}`} state={contact}>
+                <Link to={`/modal/contact/${contact.id}`} state={contact}>
                     <ContactRowEl>
                         <img src={defaultAvatar} className="avatar" />
                         {contact.firstName} {contact.lastName}

@@ -12,6 +12,7 @@ import Presents from './pages/Presents/index';
 import Contact from './pages/Contact/index';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
+import Modal from './components/Modal/index';
 
 const App = () => {
     const dbQuery = useQuery({
@@ -33,13 +34,13 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Home contacts={contacts} events={events} />} />
                     <Route path="/login" element={<Login />} />
-                    <Route path="/contacts">
-                        <Route index element={<Contacts contacts={contacts} />} />
-                        <Route path=":id" element={<Contact events={events} />} />
+                    <Route path="/contacts" element={<Contacts contacts={contacts} />} />
+                    <Route path="/modal" element={<Modal />} >
+                        <Route path="contact/:id" element={<Contact events={events} />} />
+                        <Route path="add" element={<Add contacts={contacts} />} />
+                        <Route path="add/contact" element={<AddContact />} />
+                        <Route path="add/event" element={<AddEvent contacts={contacts} />} />
                     </Route>
-                    <Route path="/add" element={<Add contacts={contacts} />} />
-                    <Route path="/add-contact" element={<AddContact />} />
-                    <Route path="/add-event" element={<AddEvent contacts={contacts} />} />
                     <Route path="/events" element={<Events events={events} />} />
                     <Route path="/presents" element={<Presents />} />
                 </Routes>
@@ -51,7 +52,9 @@ const App = () => {
 
 export default App;
 
-// TODO
+// TODO:
+// modal header routing
+// menu icons
 // prevent adding event without filling all info
 // style search
 // dob of contact will be stored in db formatted
@@ -61,5 +64,6 @@ export default App;
 // after login, redirect to /
 
 // FIXME
+// add event to contact not working
 // Scroll to top after clik on menu
 // adding events works on second click

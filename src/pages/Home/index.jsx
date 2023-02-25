@@ -1,4 +1,4 @@
-import { Section } from '../../components/Section/styles';
+import { Section } from '../../styles/section';
 import ContactRow from '../../components/ContactRow';
 import EventTile from '../../components/EventTile';
 import { UpcomingEvents } from './styles';
