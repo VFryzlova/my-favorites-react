@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { fetchNameDay } from '../.././fetchers/fetchNameDay';
 import { HeaderEl } from './styles';
 import Search from '../Search';
@@ -10,7 +10,7 @@ const getTodaysDate = () => {
 };
 
 const Header = ({ contacts }) => {
-    const { isLoading, isError, data } = useQuery('nameDay', fetchNameDay);
+    const { isLoading, isError, data } = useQuery(['nameDay'], fetchNameDay);
 
     return (
         <HeaderEl>
