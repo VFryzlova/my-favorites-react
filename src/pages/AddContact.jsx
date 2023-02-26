@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../.././firebase';
-import { Section } from '../../styles/section';
-import { Form } from './styles.js';
+import { db } from '../firebase';
+import { Section } from '../styles/section';
+import { Form } from '../styles/form';
 
 const AddContact = () => {
     const navigate = useNavigate();

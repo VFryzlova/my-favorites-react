@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Section } from '../../styles/section';
-import Colors from '../../variables/Colors';
-import defaultAvatar from '../.././assets/account_circle_black_48dp.svg';
+import { Section } from '../styles/section';
+import Colors from '../variables/Colors';
+import defaultAvatar from '.././assets/account_circle_black_48dp.svg';
 
 const Add = ({ contacts }) => {
     return (

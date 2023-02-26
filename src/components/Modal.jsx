@@ -1,6 +1,6 @@
 import { useNavigate, Outlet } from 'react-router-dom';
-import arrowBack from '../.././assets/arrow_back_ios_white_36dp.svg';
-import Colors from "../../variables/Colors";
+import arrowBack from '.././assets/arrow_back_ios_white_36dp.svg';
+import Colors from "../variables/Colors";
 
 const Modal = () => {
     const navigate = useNavigate();

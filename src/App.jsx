@@ -1,18 +1,18 @@
 import { Routes, Route } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { fetchDb } from './fetchers/fetchDb';
-import Home from './pages/Home/index';
-import Login from './pages/Login/index';
-import Contacts from './pages/Contacts/index';
-import Add from './pages/Add/index';
-import AddContact from './pages/AddContact/index';
-import AddEvent from './pages/AddEvent/index';
-import Events from './pages/Events/index';
-import Presents from './pages/Presents/index';
-import Contact from './pages/Contact/index';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Contacts from './pages/Contacts';
+import Add from './pages/Add';
+import AddContact from './pages/AddContact';
+import AddEvent from './pages/AddEvent';
+import Events from './pages/Events';
+import Presents from './pages/Presents';
+import Contact from './pages/Contact';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
-import Modal from './components/Modal/index';
+import Modal from './components/Modal';
 
 const App = () => {
     const dbQuery = useQuery({
@@ -35,7 +35,7 @@ const App = () => {
                     <Route path="/" element={<Home contacts={contacts} events={events} />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/contacts" element={<Contacts contacts={contacts} />} />
-                    <Route path="/modal" element={<Modal />} >
+                    <Route path="/modal" element={<Modal />}>
                         <Route path="contact/:id" element={<Contact events={events} />} />
                         <Route path="add" element={<Add contacts={contacts} />} />
                         <Route path="add/contact" element={<AddContact />} />
@@ -53,8 +53,6 @@ const App = () => {
 export default App;
 
 // TODO:
-// modal header routing
-// menu icons
 // prevent adding event without filling all info
 // style search
 // dob of contact will be stored in db formatted

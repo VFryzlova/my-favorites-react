@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../.././firebase';
-import { Section } from '../../styles/section';
-import Search from '../../components/Search';
-import Colors from '../../variables/Colors';
-import { ColorsEl, Form } from './styles.js';
+import { db } from '../firebase';
+import { Section } from '../styles/section';
+import Search from '../components/Search';
+import Colors from '../variables/Colors';
+import { Form } from '../styles/form';
+import { ColorPicker } from '../styles/colorPicker';
 
 const colorArray = Object.values(Colors.eventColors);
 const color = colorArray[Math.floor(Math.random() * colorArray.length)];
@@ -76,11 +77,11 @@ const AddEvent = ({ contacts }) => {
                         <input id="date" name="date" type="date" />
                     </div>
                     <Search contacts={contacts} formSearch={true} getEventContact={getEventContact} />
-                    <ColorsEl className="ColorsEl">
+                    <ColorPicker>
                         {colorArray.map((color) => (
-                            <div className="color" key={color} style={{ backgroundColor: color }} onClick={(e) => selectColor(e, color)}></div>
+                            <div className="color" style={{ backgroundColor: color }} key={color} onClick={(e) => selectColor(e, color)}></div>
                         ))}
-                    </ColorsEl>
+                    </ColorPicker>
                     <div className="form-control">
                         <button type="submit">Add event</button>
                     </div>

@@ -1,5 +1,4 @@
-import React from 'react';
-import { Form } from './styles';
+import { Form } from '../styles/form';
 
 const Login = () => {
     return (

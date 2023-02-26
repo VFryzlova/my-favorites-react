@@ -1,5 +1,5 @@
-import { Section } from '../../styles/section';
-import EventTile from '../../components/EventTile';
+import { Section } from '../styles/section';
+import EventTile from '../components/EventTile';
 
 const Events = ({ events }) => {
     return (

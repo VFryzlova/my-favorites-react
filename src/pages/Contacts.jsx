@@ -1,5 +1,5 @@
-import { Section } from '../../styles/section';
-import ContactRow from '../../components/ContactRow';
+import { Section } from '../styles/section';
+import ContactRow from '../components/ContactRow';
 
 const Contacts = ({ contacts }) => {
     return (

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Colors from "../../variables/Colors";
+import Colors from "../variables/Colors";
 
 export const HeaderEl = styled.header`
     background: ${Colors.linear.blue};

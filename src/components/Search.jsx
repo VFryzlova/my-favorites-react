@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import ContactRow from '../../components/ContactRow'
+import ContactRow from './ContactRow'
 
 const Search = ({contacts, formSearch, getEventContact}) => {
     const [searchTerm, setSearchTerm] = useState('')

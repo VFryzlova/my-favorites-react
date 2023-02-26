@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { fetchNameDay } from '../.././fetchers/fetchNameDay';
-import { HeaderEl } from './styles';
-import Search from '../Search';
+import { fetchNameDay } from '../fetchers/fetchNameDay';
+import { HeaderEl } from '.././styles/header';
+import Search from './Search';
 
 const getTodaysDate = () => {
     const date = new Date();
