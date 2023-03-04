@@ -30,7 +30,7 @@ const AddContact = () => {
                         lastName: formData.get('lastName') ?? ''
                     };
                     contactMutation.mutate(contactformDataObj);
-                    navigate('/contacts');
+                    navigate('/');
                 }}
             >
                 <div className="form-control">

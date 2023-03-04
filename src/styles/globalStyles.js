@@ -8,10 +8,6 @@ export const GlobalStyles = createGlobalStyle`
         padding: 0;
         font-family: 'Poppins', sans-serif;
     }
-
-    body {
-        background: ${Colors.grey.medium};
-    }
     
     a {
         text-decoration: none;
@@ -26,8 +22,8 @@ export const GlobalStyles = createGlobalStyle`
             background: ${Colors.white};
             border-top-left-radius: 32px;
             border-top-right-radius: 32px;
-            height: 100vh;
             padding-top: 32px;
+            padding-bottom: 68px;
         }
     }
 `;

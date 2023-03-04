@@ -24,7 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <GlobalStyles />
                 <App />
             </BrowserRouter>
-            <ReactQueryDevtools />
+            {/* <ReactQueryDevtools /> */}
         </QueryClientProvider>
     </React.StrictMode>
 );

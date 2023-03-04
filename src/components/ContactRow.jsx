@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import defaultAvatar from '.././assets/account_circle_black_48dp.svg';
 import Colors from '../variables/Colors';
 
-const ContactRow = ({ contact, addEvent, getEventContact, handleSetSearchOpen, handleSetSearchOpenEvent }) => {
+const ContactRow = ({ contact, addEvent, headerSearch, getEventContact, handleSetSearchOpen }) => {
     return (
         <>
             {addEvent ? (
@@ -10,7 +10,7 @@ const ContactRow = ({ contact, addEvent, getEventContact, handleSetSearchOpen, h
                     style={styles.row}
                     onClick={() => {
                         getEventContact(contact);
-                        handleSetSearchOpenEvent(contact);
+                        handleSetSearchOpen(contact);
                     }}
                 >
                     <img src={defaultAvatar} style={styles.avatar} />
@@ -18,12 +18,7 @@ const ContactRow = ({ contact, addEvent, getEventContact, handleSetSearchOpen, h
                 </div>
             ) : (
                 <Link to={`/modal/contact/${contact.id}`} state={contact}>
-                    <div
-                        style={styles.row}
-                        onClick={() => {
-                            handleSetSearchOpen();
-                        }}
-                    >
+                    <div style={styles.row} onClick={() => headerSearch && handleSetSearchOpen()}>
                         <img src={defaultAvatar} style={styles.avatar} />
                         {contact.firstName} {contact.lastName}
                     </div>
@@ -35,7 +30,8 @@ const ContactRow = ({ contact, addEvent, getEventContact, handleSetSearchOpen, h
 
 const styles = {
     row: {
-        paddingBottom: '8px',
+        paddingTop: '6px',
+        paddingBottom: '6px',
         display: 'flex',
         alignItems: 'center',
         color: Colors.black

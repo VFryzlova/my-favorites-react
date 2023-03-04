@@ -23,16 +23,16 @@ const Search = ({ contacts, addEvent, getEventContact }) => {
         setSearchOpen(true);
     };
 
-    const handleSetSearchOpen = () => {
-        setSearchOpen((open) => {
-            open ? false : true;
-        });
-        setSearchTerm('');
-    };
-
-    const handleSetSearchOpenEvent = (contact) => {
-        setSearchOpen(false);
-        setSearchTerm(`${contact.firstName} ${contact.lastName}`);
+    const handleSetSearchOpen = (contact) => {
+        if (addEvent) {
+            setSearchOpen(false)
+            setSearchTerm(`${contact.firstName} ${contact.lastName}`);
+        } else {
+            setSearchOpen((open) => {
+                open ? false : true;
+            })
+            setSearchTerm('');
+        }
     };
 
     useEffect(() => {
@@ -52,9 +52,9 @@ const Search = ({ contacts, addEvent, getEventContact }) => {
                             <ContactRow
                                 key={result.id}
                                 handleSetSearchOpen={handleSetSearchOpen}
-                                handleSetSearchOpenEvent={handleSetSearchOpenEvent}
                                 contact={result}
                                 addEvent={addEvent}
+                                headerSearch={true}
                                 getEventContact={getEventContact}
                             />
                         ))
