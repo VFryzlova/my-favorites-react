@@ -1,42 +1,70 @@
-import { useState, useRef, useEffect } from 'react'
-import ContactRow from './ContactRow'
+import { useState, useRef, useEffect } from 'react';
+import ContactRow from './ContactRow';
 
-const Search = ({contacts, formSearch, getEventContact}) => {
-    const [searchTerm, setSearchTerm] = useState('')
-    const searchRef = useRef()
+const Search = ({ contacts, addEvent, getEventContact }) => {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [searchOpen, setSearchOpen] = useState(false);
+    const searchRef = useRef();
 
-    const results = searchTerm && 
-    contacts.filter(contact =>
-        contact.firstName.toLowerCase().startsWith(searchTerm.toLocaleLowerCase()) || 
-        contact.lastName.toLowerCase().startsWith(searchTerm.toLocaleLowerCase())
-    )
+    const results =
+        searchTerm &&
+        contacts.filter(
+            (contact) => contact.firstName.toLowerCase().startsWith(searchTerm.toLocaleLowerCase()) || contact.lastName.toLowerCase().startsWith(searchTerm.toLocaleLowerCase())
+        );
 
-    const handleOnBlur = (e) => {(!searchRef.current.contains(e.target)) && setSearchTerm('')}
-	const clearSearch = () => { setSearchTerm('') }
+    const handleOnBlur = (e) => {
+        if (!addEvent) {
+            !searchRef.current.contains(e.target) && handleSetSearchOpen();
+        }
+    };
 
-	useEffect(()=> {
-		document.addEventListener('mousedown', handleOnBlur)
-		return () => {
-			document.removeEventListener('mousedown', handleOnBlur)
-		}
-	}, [])
+    const handleSetSearchTerm = (e) => {
+        setSearchTerm(e.target.value);
+        setSearchOpen(true);
+    };
 
-  return (
-    <div className="search" ref={searchRef}>
-        <input 
-            type="search" 
-            placeholder="Search.." 
-            value={searchTerm} 
-            onChange={e => setSearchTerm(e.target.value)}
-            />
-        {searchTerm && 
-        <div className="search-dropdown"> 
-            {results.length > 0 
-            ? results.map(result => <ContactRow key={result.id} contact={result} onClick={clearSearch} formSearch={formSearch} getEventContact={getEventContact} />) 
-            : <div className='not-found'>Not found..</div>}
-        </div>}
-    </div>
-  )
-}
+    const handleSetSearchOpen = () => {
+        setSearchOpen((open) => {
+            open ? false : true;
+        });
+        setSearchTerm('');
+    };
 
-export default Search
+    const handleSetSearchOpenEvent = (contact) => {
+        setSearchOpen(false);
+        setSearchTerm(`${contact.firstName} ${contact.lastName}`);
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleOnBlur);
+        return () => {
+            document.removeEventListener('mousedown', handleOnBlur);
+        };
+    }, []);
+
+    return (
+        <div className="search" ref={searchRef}>
+            <input type="search" placeholder="Search.." value={searchTerm} onChange={handleSetSearchTerm} />
+            {searchOpen ? (
+                <div className="search-dropdown">
+                    {results.length > 0 ? (
+                        results.map((result) => (
+                            <ContactRow
+                                key={result.id}
+                                handleSetSearchOpen={handleSetSearchOpen}
+                                handleSetSearchOpenEvent={handleSetSearchOpenEvent}
+                                contact={result}
+                                addEvent={addEvent}
+                                getEventContact={getEventContact}
+                            />
+                        ))
+                    ) : (
+                        <div className="not-found">Not found..</div>
+                    )}
+                </div>
+            ) : null}
+        </div>
+    );
+};
+
+export default Search;

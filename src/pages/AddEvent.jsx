@@ -64,6 +64,7 @@ const AddEvent = ({ contacts }) => {
                             contactId: eventContact.id,
                             color: eventColor
                         };
+
                         eventMutation.mutate(eventFormDataObj);
                         navigate('/');
                     }}
@@ -76,7 +77,7 @@ const AddEvent = ({ contacts }) => {
                         <label htmlFor="date">Date</label>
                         <input id="date" name="date" type="date" />
                     </div>
-                    <Search contacts={contacts} formSearch={true} getEventContact={getEventContact} />
+                    <Search contacts={contacts} addEvent={true} getEventContact={getEventContact} />
                     <ColorPicker>
                         {colorArray.map((color) => (
                             <div className="color" style={{ backgroundColor: color }} key={color} onClick={(e) => selectColor(e, color)}></div>
