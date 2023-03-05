@@ -7,7 +7,7 @@ const EventTile = ({ event, contacts, vertical }) => {
 
     const goToContact = () => {
         const contact = contacts.find((contact) => contact.id === event.contactId);
-        navigate(`/modal/contact/${contact}`, { state: contact });
+        navigate(`/modal/contact/${contact.id}`, { state: contact });
     };
 
     return (

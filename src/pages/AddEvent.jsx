@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase';
@@ -13,9 +13,11 @@ const colorArray = Object.values(Colors.eventColors);
 const color = colorArray[Math.floor(Math.random() * colorArray.length)];
 
 const AddEvent = ({ contacts }) => {
-    const navigate = useNavigate();
     const [eventContact, setEventContact] = useState();
     const [eventColor, setEventColor] = useState(color);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const contact = location.state;
 
     const queryClient = useQueryClient();
 
@@ -25,6 +27,7 @@ const AddEvent = ({ contacts }) => {
         },
         onSuccess: () => {
             queryClient.invalidateQueries(['dbData']);
+            navigate('/');
         }
     });
 
@@ -66,7 +69,6 @@ const AddEvent = ({ contacts }) => {
                         };
 
                         eventMutation.mutate(eventFormDataObj);
-                        navigate('/');
                     }}
                 >
                     <div className="form-control">
@@ -77,7 +79,9 @@ const AddEvent = ({ contacts }) => {
                         <label htmlFor="date">Date</label>
                         <input id="date" name="date" type="date" />
                     </div>
+                    {!contact &&
                     <Search contacts={contacts} addEvent={true} getEventContact={getEventContact} />
+                    }
                     <ColorPicker>
                         {colorArray.map((color) => (
                             <div className="color" style={{ backgroundColor: color }} key={color} onClick={(e) => selectColor(e, color)}></div>
