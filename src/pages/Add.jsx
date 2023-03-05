@@ -5,7 +5,7 @@ import defaultAvatar from '.././assets/account_circle_black_48dp.svg';
 
 const Add = ({ contacts }) => {
     return (
-        <Section style={styles.wrapper}>
+        <Section centered style={styles.wrapper}>
             <Link to="/modal/add/contact">
                 <div style={styles.addBox}>
                     <img src={defaultAvatar} />
@@ -26,7 +26,8 @@ const styles = {
     wrapper: {
         display: 'flex',
         flexDirection: 'row',
-        gap: '32px'
+        gap: '32px',
+        justifyContent: 'center'
     },
     addBox: {
         display: 'flex',

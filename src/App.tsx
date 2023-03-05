@@ -41,7 +41,7 @@ const App = () => {
                         <Route path="add/contact" element={<AddContact />} />
                         <Route path="add/event" element={<AddEvent contacts={contacts} />} />
                     </Route>
-                    <Route path="/events" element={<Events events={events} />} />
+                    <Route path="/events" element={<Events events={events} contacts={contacts}/>} />
                     <Route path="/presents" element={<Presents />} />
                 </Routes>
             </main>

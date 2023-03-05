@@ -8,7 +8,7 @@ const Home = ({ contacts, events }) => {
             <h2 style={styles.title}>Upcoming events</h2>
             <div style={styles.events}>
                 {events?.map((event) => (
-                    <EventTile vertical key={event.id} event={event} />
+                    <EventTile vertical key={event.id} event={event} contacts={contacts} />
                 ))}
             </div>
             <Section>

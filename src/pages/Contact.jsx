@@ -6,7 +6,7 @@ import defaultAvatar from '.././assets/account_circle_black_48dp.svg';
 import contactMenu from '.././assets/more_vert_24dp.svg';
 import Colors from '../variables/Colors';
 
-const Contact = ({ events }) => {
+const Contact = ({ events, contacts }) => {
     const [menuModalOpen, setMenuModalOpen] = useState(false);
     const location = useLocation();
     const contact = location.state;
